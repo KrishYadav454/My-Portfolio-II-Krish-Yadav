@@ -194,7 +194,7 @@ img{
 }
 .home__title{
   font-size: var(--big-font-size);
-  margin-bottom: var(--mb-);
+  margin-bottom: var(--mb-5);
 }
 .home__title-color{
   color: var(--first-color);
@@ -216,6 +216,8 @@ img{
   position: absolute;
   right: 0;
   bottom: 0;
+  margin-right: 2cm;
+  margin-bottom: 2cm;
   width: 295px;
 }
 
@@ -301,7 +303,7 @@ img{
   width: 65%;
 }
 .skills__img{
-  border-radius: .5rem;
+  border-radius: .8rem;
 }
 
 /* ===== WORK =====*/
