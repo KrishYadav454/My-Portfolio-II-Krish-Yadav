@@ -56,6 +56,46 @@ sr.reveal('.work__img',{interval: 200});
 /*SCROLL CONTACT*/
 sr.reveal('.contact__input',{interval: 200}); 
 
+/*===== CONTACT FORM WITH EMAIL JS =====*/
 
+// Initialize EmailJS with your user ID
+(function() {
+    emailjs.init("#");
+})();
 
+// Function to send email
+function sendEmail(name, email, message) {
+    emailjs.send("#", "#", {
+        from_name: name,
+        from_email: email,
+        message: message
+    }).then(
+        function(response) {
+            console.log("Email sent successfully", response);
+            alert("Your message has been sent successfully!");
+        },
+        function(error) {
+            console.log("Failed to send email", error);
+            alert("Failed to send message. Please try again later.");
+        }
+    );
+}
 
+// Event listener for form submission
+document.getElementById('contactform').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('contact-name').value;
+    var email = document.getElementById('contact-email').value;
+    var message = document.getElementById('contact-message').value;
+
+    if (name && email && message) {
+        sendEmail(name, email, message);
+        // Clear form fields after submission
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-message').value = '';
+    } else {
+        alert("Please fill in all fields.");
+    }
+});
